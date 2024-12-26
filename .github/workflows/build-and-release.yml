@@ -3,11 +3,11 @@ name: Build and Publish Releases
 on:
   push:
     branches: 
-      - main
+      - master
       - hash-fix
   pull_request:
     branches:
-      - main
+      - master
       - hash-fix
 
 jobs:
@@ -39,7 +39,7 @@ jobs:
 
   release:
     needs: build
-    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/hash-fix'
+    if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/hash-fix'
     runs-on: ubuntu-latest
 
     steps:
