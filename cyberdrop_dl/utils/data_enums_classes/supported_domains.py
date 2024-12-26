@@ -18,7 +18,6 @@ if not is_testing:
 forum_crawlers = {crawler for crawler in crawlers if issubclass(crawler, XenforoCrawler)}
 website_crawlers = crawlers - forum_crawlers
 
-
 def get_supported_sites_from(crawlers: set[type[Crawler]]) -> dict[str, str]:
     support_sites_dict = {}
     for crawler in crawlers:
@@ -34,8 +33,11 @@ def get_supported_sites_from(crawlers: set[type[Crawler]]) -> dict[str, str]:
 
     return support_sites_dict
 
-
 SUPPORTED_FORUMS = get_supported_sites_from(forum_crawlers)
 SUPPORTED_WEBSITES = get_supported_sites_from(website_crawlers)
+
+# Explicitly add simpcity.su
+SUPPORTED_FORUMS["simpcity"] = "simpcity.su"
+
 SUPPORTED_SITES = SUPPORTED_FORUMS | SUPPORTED_WEBSITES
 SUPPORTED_SITES_DOMAINS = sorted(SUPPORTED_SITES.values())
