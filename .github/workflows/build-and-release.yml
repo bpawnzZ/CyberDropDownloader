@@ -49,8 +49,8 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
-        # Add release creation logic
-        # For example, using GitHub CLI or a release creation script
-        gh release create v${{ github.ref_name }}-${{ github.sha }} \
-          --title "Release ${{ github.ref_name }}-${{ github.sha }}" \
-          --notes "Automated release for ${{ github.ref_name }} branch"
+        # Modify release creation to handle hash-fix branch
+        branch_name=$(echo "${{ github.ref }}" | sed 's|refs/heads/||')
+        gh release create v$branch_name-${{ github.sha }} \
+          --title "Release $branch_name-${{ github.sha }}" \
+          --notes "Automated release for $branch_name branch"
