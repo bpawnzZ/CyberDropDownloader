@@ -1,0 +1,56 @@
+name: Build and Publish Releases
+
+on:
+  push:
+    branches: 
+      - main
+      - hash-fix
+  pull_request:
+    branches:
+      - main
+      - hash-fix
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        # Add platforms/architectures as needed
+        platform: [ubuntu-latest, macos-latest, windows-latest]
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Set up build environment
+      # Add steps to set up your specific build environment (e.g., Python, Node, etc.)
+      uses: actions/setup-python@v3
+      with:
+        python-version: '3.x'
+
+    - name: Build project
+      run: |
+        # Add your build commands here
+        # For example: python setup.py build
+
+    - name: Run tests
+      run: |
+        # Add your test commands here
+        # For example: python -m unittest discover tests
+
+  release:
+    needs: build
+    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/hash-fix'
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Create Release
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        # Add release creation logic
+        # For example, using GitHub CLI or a release creation script
+        gh release create v${{ github.ref_name }}-${{ github.sha }} \
+          --title "Release ${{ github.ref_name }}-${{ github.sha }}" \
+          --notes "Automated release for ${{ github.ref_name }} branch"
