@@ -1,0 +1,24 @@
+- model_name: openai/chatgpt-4o-latest
+    litellm_params:
+      model: openrouter/openai/chatgpt-4o-latest
+      api_base: https://openrouter.ai/api/v1
+      api_key: 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
+      stream: True
+  - model_name: x-ai/grok-vision-beta
+    litellm_params:
+      model: openrouter/x-ai/grok-vision-beta
+      api_base: https://openrouter.ai/api/v1
+      api_key: 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
+      stream: True
+  - model_name: x-ai/grok-beta
+    litellm_params:
+      model: openrouter/x-ai/grok-beta
+      api_base: https://openrouter.ai/api/v1
+      api_key: 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
+      stream: True
+  - model_name: nvidia/llama-3.1-nemotron-70b-instruct
+    litellm_params:
+      model: openrouter/nvidia/llama-3.1-nemotron-70b-instruct
+      api_base: https://openrouter.ai/api/v1
+      api_key: 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
+      stream: True

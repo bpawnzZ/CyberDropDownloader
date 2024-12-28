@@ -1,0 +1,14 @@
+/drop
+/add       cyberdrop_dl/clients/errors.py
+/add       cyberdrop_dl/downloader/downloader.py
+/add       cyberdrop_dl/managers/download_manager.py
+/add       cyberdrop_dl/managers/path_manager.py
+/add       cyberdrop_dl/scraper/__init__.py
+/add       cyberdrop_dl/scraper/crawlers/__init__.py
+/add       cyberdrop_dl/scraper/crawlers/simpcity_crawler.py
+/add       cyberdrop_dl/scraper/scraper.py
+/add       cyberdrop_dl/ui/progress/downloads_progress.py
+/add       cyberdrop_dl/ui/progress/file_progress.py
+/add       cyberdrop_dl/ui/progress/scraping_progress.py
+/add       cyberdrop_dl/utils/constants.py
+/add       cyberdrop_dl/utils/logger.py
