@@ -12,7 +12,7 @@ if TYPE_CHECKING:
 
 class SimpCityCrawler(XenforoCrawler):
     primary_base_domain = URL("https://simpcity.su")
-    login_required = False
+    login_required = True  # Changed from False to True
     domain = "simpcity"
 
     def __init__(self, manager: Manager) -> None:
